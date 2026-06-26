@@ -7,7 +7,7 @@ spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:sqlserver://localhost:1433;databaseName=kinetix;encrypt=true;trustServerCertificate=true}
     username: ${SPRING_DATASOURCE_USERNAME:sa}
-    password: ${SPRING_DATASOURCE_PASSWORD:Kinetix@12345}
+    password: ${SPRING_DATASOURCE_PASSWORD:@ITB123456}
   jpa:
     hibernate:
       ddl-auto: validate

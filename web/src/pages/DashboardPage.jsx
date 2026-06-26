@@ -1,3 +1,4 @@
+import React from 'react';
 import { CalendarDays, LogOut, ShieldAlert, Users } from "lucide-react";
 import { useAuth } from "../state/AuthContext.jsx";
 

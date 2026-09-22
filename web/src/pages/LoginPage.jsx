@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthShell from "../components/AuthShell.jsx";
 import { useAuth } from "../state/AuthContext.jsx";
 
+
 export default function LoginPage() {
   const navigate = useNavigate();
   const { login } = useAuth();

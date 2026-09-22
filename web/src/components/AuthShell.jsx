@@ -1,9 +1,10 @@
 import React from 'react';
 import { Activity, ShieldCheck } from "lucide-react";
+import '../components/AuthShell.css'
 
 export default function AuthShell({ title, subtitle, children }) {
   return (
-    <main className="min-h-screen bg-[#f5f7f8]">
+    <main className="min-h-screen">
       <div className="mx-auto grid min-h-screen max-w-6xl grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="flex flex-col justify-between bg-ink px-8 py-8 text-white lg:px-10">
           <div className="flex items-center gap-3">

@@ -6,7 +6,7 @@ export default function DashboardPage() {
   const { session, logout } = useAuth();
 
   return (
-    <main className="min-h-screen bg-[#f5f7f8]">
+    <main className="min-h-screen">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <div>

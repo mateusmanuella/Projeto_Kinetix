@@ -1,12 +1,11 @@
 import React from 'react';
 import { Activity, ShieldCheck } from "lucide-react";
-import '../components/AuthShell.css'
 
 export default function AuthShell({ title, subtitle, children }) {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-slate-50 text-ink dark:bg-darkTheme-bg dark:text-darkTheme-text">
       <div className="mx-auto grid min-h-screen max-w-6xl grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
-        <section className="flex flex-col justify-between bg-ink px-8 py-8 text-white lg:px-10">
+        <section className="flex flex-col justify-between bg-ink px-8 py-8 text-white dark:bg-darkTheme-surface lg:px-10">
           <div className="flex items-center gap-3">
             <div className="grid h-10 w-10 place-items-center rounded bg-mint text-ink">
               <Activity size={24} />
@@ -29,7 +28,7 @@ export default function AuthShell({ title, subtitle, children }) {
         </section>
 
         <section className="flex items-center justify-center px-5 py-8 sm:px-8">
-          <div className="w-full max-w-xl rounded border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <div className="w-full max-w-xl rounded border border-slate-200 bg-white p-6 shadow-sm dark:border-darkTheme-border dark:bg-darkTheme-panel sm:p-8">
             {children}
           </div>
         </section>
@@ -37,3 +36,4 @@ export default function AuthShell({ title, subtitle, children }) {
     </main>
   );
 }
+

@@ -22,7 +22,7 @@ export default function LoginPage() {
       await login(form);
       navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message ?? "Nao foi possivel autenticar.");
+      setError(err.response?.data?.message ?? "Não foi possivel autenticar.");
     } finally {
       setLoading(false);
     }
@@ -31,18 +31,18 @@ export default function LoginPage() {
   return (
     <AuthShell
       title="Acesse sua area de reabilitacao"
-      subtitle="Clinicas e fisioterapeutas acompanham pacientes, pacientes visualizam sua evolucao pelo mobile."
+      subtitle="Clinicas e fisioterapeutas acompanham pacientes, pacientes podem visualizar suas consultas e seus agendamentos por aqui."
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <h2 className="text-2xl font-semibold text-ink">Entrar</h2>
-          <p className="mt-1 text-sm text-slate-500">Use seu email cadastrado no KINETIX.</p>
+          <h2 className="text-2xl font-semibold text-ink dark:text-darkTheme-text">Entrar</h2>
+          <p className="mt-1 text-sm text-slate-500 dark:text-darkTheme-muted">Use seu email cadastrado no KINETIX.</p>
         </div>
 
         <label className="block">
-          <span className="text-sm font-medium text-slate-700">Email</span>
+          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Email</span>
           <input
-            className="mt-1 h-11 w-full rounded border border-slate-300 px-3 outline-none focus:border-sky"
+            className="mt-1 h-11 w-full rounded border border-slate-300 bg-white px-3 outline-none focus:border-sky dark:border-darkTheme-border dark:bg-darkTheme-surface dark:text-darkTheme-text"
             type="email"
             value={form.email}
             onChange={(event) => setForm({ ...form, email: event.target.value })}
@@ -51,9 +51,9 @@ export default function LoginPage() {
         </label>
 
         <label className="block">
-          <span className="text-sm font-medium text-slate-700">Senha</span>
+          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Senha</span>
           <input
-            className="mt-1 h-11 w-full rounded border border-slate-300 px-3 outline-none focus:border-sky"
+            className="mt-1 h-11 w-full rounded border border-slate-300 bg-white px-3 outline-none focus:border-sky dark:border-darkTheme-border dark:bg-darkTheme-surface dark:text-darkTheme-text"
             type="password"
             value={form.senha}
             onChange={(event) => setForm({ ...form, senha: event.target.value })}
@@ -72,13 +72,14 @@ export default function LoginPage() {
           {loading ? "Entrando..." : "Entrar"}
         </button>
 
-        <p className="text-center text-sm text-slate-600">
-          Ainda nao tem conta?{" "}
+        <p className="text-center text-sm text-slate-600 dark:text-darkTheme-muted">
+          Ainda não tem conta?{" "}
           <Link className="font-semibold text-sky" to="/cadastro">
-            Criar cadastro
+            Criar conta
           </Link>
         </p>
       </form>
     </AuthShell>
   );
 }
+

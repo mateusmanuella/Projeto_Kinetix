@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Save, Plus, Trash2 } from "lucide-react";
 import api from "../services/api"; // Assumindo instancia axios configurada
 
+const fieldClass = "w-full rounded border border-slate-300 bg-white p-2 outline-none focus:border-sky dark:border-darkTheme-border dark:bg-darkTheme-surface dark:text-darkTheme-text";
+
 export default function PrescritorPage() {
   const [pacientes, setPacientes] = useState([]);
   const [exerciciosBase, setExerciciosBase] = useState([]);
@@ -48,11 +50,12 @@ export default function PrescritorPage() {
   }
 
   return (
-    <div className="p-8 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-slate-50 p-8 text-ink dark:bg-darkTheme-bg dark:text-darkTheme-text">
+      <div className="mx-auto max-w-5xl">
       <header className="mb-8 flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-ink">Prescritor Digital</h1>
-          <p className="text-slate-500">Monte o plano de reabilitacao personalizado.</p>
+          <h1 className="text-3xl font-bold text-ink dark:text-darkTheme-text">Prescritor Digital</h1>
+          <p className="text-slate-500 dark:text-darkTheme-muted">Monte o plano de reabilitacao personalizado.</p>
         </div>
         <button 
           onClick={handleSalvar}
@@ -64,11 +67,11 @@ export default function PrescritorPage() {
         </button>
       </header>
 
-      <section className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+      <section className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 dark:border-darkTheme-border dark:bg-darkTheme-panel">
         <div className="mb-6">
           <label className="block text-sm font-medium mb-1">Paciente</label>
           <select 
-            className="w-full border p-2 rounded"
+            className={fieldClass}
             value={selectedPaciente}
             onChange={(e) => setSelectedPaciente(e.target.value)}
           >
@@ -79,11 +82,11 @@ export default function PrescritorPage() {
 
         <div className="space-y-4">
           {plano.map((item, index) => (
-            <div key={index} className="flex gap-4 items-end bg-slate-50 p-4 rounded border border-slate-200">
+            <div key={index} className="flex gap-4 items-end bg-slate-50 p-4 rounded border border-slate-200 dark:border-darkTheme-border dark:bg-darkTheme-surface">
               <div className="flex-1">
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Exercicio</label>
+                <label className="block text-xs font-bold uppercase text-slate-500 mb-1 dark:text-darkTheme-muted">Exercicio</label>
                 <select 
-                  className="w-full border p-2 rounded"
+                  className={fieldClass}
                   value={item.exercicioId}
                   onChange={(e) => updateExercicio(index, "exercicioId", e.target.value)}
                 >
@@ -92,18 +95,18 @@ export default function PrescritorPage() {
                 </select>
               </div>
               <div className="w-20">
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Series</label>
-                <input type="number" className="w-full border p-2 rounded" value={item.series} onChange={(e) => updateExercicio(index, "series", e.target.value)} />
+                <label className="block text-xs font-bold uppercase text-slate-500 mb-1 dark:text-darkTheme-muted">Series</label>
+                <input type="number" className={fieldClass} value={item.series} onChange={(e) => updateExercicio(index, "series", e.target.value)} />
               </div>
               <div className="w-20">
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Reps</label>
-                <input type="number" className="w-full border p-2 rounded" value={item.repeticoes} onChange={(e) => updateExercicio(index, "repeticoes", e.target.value)} />
+                <label className="block text-xs font-bold uppercase text-slate-500 mb-1 dark:text-darkTheme-muted">Reps</label>
+                <input type="number" className={fieldClass} value={item.repeticoes} onChange={(e) => updateExercicio(index, "repeticoes", e.target.value)} />
               </div>
               <div className="w-24">
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Tempo (s)</label>
-                <input type="number" className="w-full border p-2 rounded" value={item.tempoExecucao} onChange={(e) => updateExercicio(index, "tempoExecucao", e.target.value)} />
+                <label className="block text-xs font-bold uppercase text-slate-500 mb-1 dark:text-darkTheme-muted">Tempo (s)</label>
+                <input type="number" className={fieldClass} value={item.tempoExecucao} onChange={(e) => updateExercicio(index, "tempoExecucao", e.target.value)} />
               </div>
-              <button onClick={() => removeExercicio(index)} className="p-2 text-red-500 hover:bg-red-50 rounded">
+              <button onClick={() => removeExercicio(index)} className="p-2 text-red-500 hover:bg-red-50 rounded dark:hover:bg-darkTheme-danger">
                 <Trash2 size={20} />
               </button>
             </div>
@@ -118,6 +121,8 @@ export default function PrescritorPage() {
           Adicionar exercicio
         </button>
       </section>
+      </div>
     </div>
   );
 }
+
